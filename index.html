@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PC Social Plan Q1/2025 - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         /* ==================== CSS CUSTOM PROPERTIES ==================== */
         :root {
@@ -22,7 +24,7 @@
             --text-muted: #9ca3af;
             --border-color: #2d3748;
             --border-glow: rgba(0, 217, 255, 0.3);
-            
+
             /* Typography */
             --font-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             --font-size-base: 16px;
@@ -32,7 +34,7 @@
             --font-size-h3: 1.5rem;
             --font-size-h4: 1.25rem;
             --font-size-small: 0.875rem;
-            
+
             /* Spacing */
             --space-unit: 8px;
             --space-xs: calc(var(--space-unit) * 1);
@@ -42,7 +44,7 @@
             --space-xl: calc(var(--space-unit) * 6);
             --space-2xl: calc(var(--space-unit) * 10);
             --section-padding: calc(var(--space-unit) * 10);
-            
+
             /* Layout */
             --container-max-width: 1200px;
             --card-padding: calc(var(--space-unit) * 3);
@@ -50,19 +52,19 @@
             --border-radius: 12px;
             --border-radius-sm: 8px;
         }
-        
+
         /* ==================== RESET & BASE ==================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         html {
             scroll-behavior: smooth;
             font-size: var(--font-size-base);
         }
-        
+
         body {
             font-family: var(--font-base);
             line-height: var(--line-height-base);
@@ -71,54 +73,70 @@
             background-attachment: fixed;
             overflow-x: hidden;
         }
-        
+
         /* ==================== TYPOGRAPHY ==================== */
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             color: var(--text-primary);
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: var(--space-md);
         }
-        
-        h1 { font-size: var(--font-size-h1); }
-        h2 { font-size: var(--font-size-h2); }
-        h3 { font-size: var(--font-size-h3); }
-        h4 { font-size: var(--font-size-h4); }
-        
+
+        h1 {
+            font-size: var(--font-size-h1);
+        }
+
+        h2 {
+            font-size: var(--font-size-h2);
+        }
+
+        h3 {
+            font-size: var(--font-size-h3);
+        }
+
+        h4 {
+            font-size: var(--font-size-h4);
+        }
+
         p {
             margin-bottom: var(--space-sm);
         }
-        
+
         ul {
             list-style: none;
         }
-        
+
         a {
             color: var(--accent-cyan);
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
+
         a:hover {
             color: var(--accent-purple);
         }
-        
+
         /* ==================== LAYOUT UTILITIES ==================== */
         .container {
             max-width: var(--container-max-width);
             margin: 0 auto;
             padding: 0 var(--space-lg);
         }
-        
+
         section {
             padding: var(--section-padding) 0;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         section:last-of-type {
             border-bottom: none;
         }
-        
+
         /* ==================== NAVIGATION ==================== */
         .nav {
             position: sticky;
@@ -128,7 +146,7 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .nav-container {
             display: flex;
             align-items: center;
@@ -137,7 +155,7 @@
             max-width: var(--container-max-width);
             margin: 0 auto;
         }
-        
+
         .nav-brand {
             font-size: 1.25rem;
             font-weight: 700;
@@ -146,12 +164,12 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .nav-links {
             display: flex;
             gap: var(--space-lg);
         }
-        
+
         .nav-link {
             color: var(--text-muted);
             font-weight: 500;
@@ -161,12 +179,12 @@
             transition: all 0.3s ease;
             position: relative;
         }
-        
+
         .nav-link:hover,
         .nav-link.active {
             color: var(--accent-cyan);
         }
-        
+
         .nav-link.active::after {
             content: '';
             position: absolute;
@@ -176,7 +194,7 @@
             height: 2px;
             background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
         }
-        
+
         /* ==================== COMPONENTS ==================== */
         .card {
             background: var(--surface-primary);
@@ -185,13 +203,13 @@
             padding: var(--card-padding);
             transition: all 0.3s ease;
         }
-        
+
         .card:hover {
             border-color: var(--border-glow);
             box-shadow: 0 0 20px rgba(0, 217, 255, 0.15);
             transform: translateY(-2px);
         }
-        
+
         .badge {
             display: inline-block;
             padding: var(--space-xs) var(--space-sm);
@@ -203,7 +221,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
+
         .btn {
             display: inline-block;
             padding: var(--space-sm) var(--space-lg);
@@ -215,19 +233,19 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 20px rgba(0, 217, 255, 0.4);
         }
-        
+
         /* ==================== SECTION: HERO ==================== */
         .hero {
             padding: calc(var(--section-padding) * 1.5) 0;
             text-align: center;
             background: radial-gradient(circle at center, rgba(0, 217, 255, 0.05), transparent);
         }
-        
+
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: var(--space-md);
@@ -236,14 +254,14 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .hero p {
             font-size: 1.25rem;
             color: var(--text-muted);
             max-width: 600px;
             margin: 0 auto;
         }
-        
+
         /* ==================== SECTION: SKILLS ==================== */
         .section-title {
             font-size: var(--font-size-h2);
@@ -251,7 +269,7 @@
             text-align: center;
             position: relative;
         }
-        
+
         .section-title::after {
             content: '';
             display: block;
@@ -261,28 +279,28 @@
             margin: var(--space-md) auto 0;
             border-radius: 2px;
         }
-        
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: var(--space-md);
             margin-bottom: var(--space-2xl);
         }
-        
+
         .skill-card {
             text-align: center;
         }
-        
+
         .skill-card h4 {
             color: var(--accent-cyan);
             margin-bottom: var(--space-sm);
         }
-        
+
         .skill-card p {
             font-size: var(--font-size-small);
             color: var(--text-muted);
         }
-        
+
         .design-rules {
             background: var(--surface-secondary);
             border: 1px solid var(--border-color);
@@ -290,31 +308,31 @@
             padding: var(--space-xl);
             margin-top: var(--space-2xl);
         }
-        
+
         .design-rules h3 {
             color: var(--accent-purple);
             margin-bottom: var(--space-lg);
         }
-        
+
         .design-rules-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: var(--space-lg);
         }
-        
+
         .design-rule-item h4 {
             font-size: 1rem;
             color: var(--text-primary);
             margin-bottom: var(--space-xs);
         }
-        
+
         .design-rule-item ul {
             list-style: disc;
             list-style-position: inside;
             color: var(--text-muted);
             font-size: var(--font-size-small);
         }
-        
+
         /* ==================== SECTION: OVERVIEW ==================== */
         .overview-grid {
             display: grid;
@@ -322,29 +340,29 @@
             gap: var(--space-md);
             margin-bottom: var(--space-2xl);
         }
-        
+
         .overview-card h4 {
             color: var(--accent-cyan);
             margin-bottom: var(--space-sm);
         }
-        
+
         .overview-card ul {
             list-style: none;
         }
-        
+
         .overview-card ul li {
             padding-left: var(--space-md);
             position: relative;
             margin-bottom: var(--space-xs);
         }
-        
+
         .overview-card ul li::before {
             content: '→';
             position: absolute;
             left: 0;
             color: var(--accent-cyan);
         }
-        
+
         /* ==================== SECTION: SEGMENTATION ==================== */
         .segmentation-grid {
             display: grid;
@@ -352,12 +370,12 @@
             gap: var(--space-md);
             margin-bottom: var(--space-2xl);
         }
-        
+
         .segment-card {
             position: relative;
             overflow: hidden;
         }
-        
+
         .segment-card::before {
             content: '';
             position: absolute;
@@ -367,41 +385,41 @@
             height: 100%;
             background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
         }
-        
+
         .segment-badge {
             margin-bottom: var(--space-md);
         }
-        
+
         .segment-card h3 {
             font-size: 1.5rem;
             margin-bottom: var(--space-sm);
         }
-        
+
         .segment-tagline {
             color: var(--accent-cyan);
             font-style: italic;
             margin-bottom: var(--space-md);
             font-size: var(--font-size-small);
         }
-        
+
         .segment-card ul {
             list-style: none;
         }
-        
+
         .segment-card ul li {
             padding-left: var(--space-md);
             position: relative;
             margin-bottom: var(--space-sm);
             font-size: var(--font-size-small);
         }
-        
+
         .segment-card ul li::before {
             content: '●';
             position: absolute;
             left: 0;
             color: var(--accent-purple);
         }
-        
+
         /* ==================== SECTION: PILLARS ==================== */
         .pillars-grid {
             display: grid;
@@ -409,25 +427,25 @@
             gap: var(--space-md);
             margin-bottom: var(--space-2xl);
         }
-        
+
         .pillar-card h4 {
             color: var(--accent-purple);
             margin-bottom: var(--space-sm);
             font-size: 1.1rem;
         }
-        
+
         .pillar-card p {
             font-size: var(--font-size-small);
             color: var(--text-muted);
             line-height: 1.5;
         }
-        
+
         /* ==================== TABLE ==================== */
         .table-container {
             overflow-x: auto;
             margin-bottom: var(--space-2xl);
         }
-        
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -435,7 +453,7 @@
             border-radius: var(--border-radius);
             overflow: hidden;
         }
-        
+
         th {
             background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
             color: var(--text-primary);
@@ -443,20 +461,20 @@
             text-align: left;
             font-weight: 600;
         }
-        
+
         td {
             padding: var(--space-md);
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         tr:last-child td {
             border-bottom: none;
         }
-        
+
         tr:hover {
             background: var(--surface-secondary);
         }
-        
+
         /* ==================== TIMELINE ==================== */
         .timeline {
             display: grid;
@@ -464,38 +482,38 @@
             gap: var(--space-md);
             margin-bottom: var(--space-2xl);
         }
-        
+
         .timeline-card {
             text-align: center;
         }
-        
+
         .timeline-card h4 {
             color: var(--accent-cyan);
             margin-bottom: var(--space-md);
         }
-        
+
         .timeline-card ul li {
             padding: var(--space-sm) 0;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .timeline-card ul li:last-child {
             border-bottom: none;
         }
-        
+
         /* ==================== KPI CARDS ==================== */
         .kpi-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: var(--space-md);
         }
-        
+
         .kpi-card {
             text-align: center;
             background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(168, 85, 247, 0.1));
             border: 2px solid var(--border-color);
         }
-        
+
         .kpi-value {
             font-size: 2.5rem;
             font-weight: 800;
@@ -505,14 +523,14 @@
             background-clip: text;
             margin-bottom: var(--space-sm);
         }
-        
+
         .kpi-label {
             color: var(--text-muted);
             font-size: var(--font-size-small);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
+
         /* ==================== PLACEHOLDER ==================== */
         .placeholder {
             text-align: center;
@@ -523,7 +541,7 @@
             color: var(--text-muted);
             font-style: italic;
         }
-        
+
         /* ==================== RESPONSIVE ==================== */
         @media (max-width: 768px) {
             :root {
@@ -532,15 +550,15 @@
                 --font-size-h3: 1.25rem;
                 --section-padding: calc(var(--space-unit) * 6);
             }
-            
+
             .nav-links {
                 gap: var(--space-md);
             }
-            
+
             .nav-link {
                 font-size: 0.75rem;
             }
-            
+
             .skills-grid,
             .segmentation-grid,
             .pillars-grid,
@@ -548,37 +566,52 @@
                 grid-template-columns: 1fr;
             }
         }
-        
+
         /* ==================== ANIMATIONS ==================== */
         @keyframes fadeIn {
             from {
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .card {
             animation: fadeIn 0.6s ease-out backwards;
         }
-        
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
-        .card:nth-child(4) { animation-delay: 0.4s; }
-        .card:nth-child(5) { animation-delay: 0.5s; }
+
+        .card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <div class="nav-brand">PC Social Plan</div>
             <div class="nav-links">
-                <a href="#skills" class="nav-link">Skills</a>
                 <a href="#overview" class="nav-link">Overview</a>
                 <a href="#segmentation" class="nav-link">Segmentation</a>
                 <a href="#pillars" class="nav-link">Pillars</a>
@@ -597,115 +630,15 @@
         </div>
     </section>
 
-    <!-- Section: Front-end & Design System -->
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Front-end & Design System</h2>
-            
-            <div class="skills-grid">
-                <div class="card skill-card">
-                    <h4>Tailwind CSS</h4>
-                    <p>Utility-first CSS framework for rapid UI development</p>
-                </div>
-                <div class="card skill-card">
-                    <h4>Next.js</h4>
-                    <p>React framework for production-grade applications</p>
-                </div>
-                <div class="card skill-card">
-                    <h4>React</h4>
-                    <p>Component-based UI library for modern web apps</p>
-                </div>
-                <div class="card skill-card">
-                    <h4>TypeScript</h4>
-                    <p>Type-safe JavaScript for scalable codebases</p>
-                </div>
-                <div class="card skill-card">
-                    <h4>Component-based Design</h4>
-                    <p>Modular, reusable UI patterns and systems</p>
-                </div>
-                <div class="card skill-card">
-                    <h4>Responsive Grid</h4>
-                    <p>Adaptive layouts for all screen sizes</p>
-                </div>
-                <div class="card skill-card">
-                    <h4>Accessibility Basics</h4>
-                    <p>WCAG-compliant, inclusive user experiences</p>
-                </div>
-                <div class="card skill-card">
-                    <h4>Performance/SEO Basics</h4>
-                    <p>Optimized load times and search visibility</p>
-                </div>
-            </div>
 
-            <div class="design-rules">
-                <h3>Design Rules</h3>
-                <div class="design-rules-grid">
-                    <div class="design-rule-item">
-                        <h4>Typography Scale</h4>
-                        <ul>
-                            <li>H1: 48px (3rem)</li>
-                            <li>H2: 32px (2rem)</li>
-                            <li>H3: 24px (1.5rem)</li>
-                            <li>Body: 16px base</li>
-                        </ul>
-                    </div>
-                    <div class="design-rule-item">
-                        <h4>Spacing Scale</h4>
-                        <ul>
-                            <li>Base unit: 8px</li>
-                            <li>Small: 8–16px</li>
-                            <li>Medium: 24–32px</li>
-                            <li>Large: 48–80px</li>
-                        </ul>
-                    </div>
-                    <div class="design-rule-item">
-                        <h4>Card System</h4>
-                        <ul>
-                            <li>24px padding</li>
-                            <li>12px border radius</li>
-                            <li>Hover glow effect</li>
-                            <li>Dark surface bg</li>
-                        </ul>
-                    </div>
-                    <div class="design-rule-item">
-                        <h4>Color Tokens</h4>
-                        <ul>
-                            <li>BG: #0a0e1a</li>
-                            <li>Surface: #1a1f2e</li>
-                            <li>Accent: Cyan → Purple</li>
-                            <li>Text: White/Gray</li>
-                        </ul>
-                    </div>
-                    <div class="design-rule-item">
-                        <h4>Buttons</h4>
-                        <ul>
-                            <li>Gradient accent</li>
-                            <li>8px border radius</li>
-                            <li>Hover lift effect</li>
-                            <li>600 font weight</li>
-                        </ul>
-                    </div>
-                    <div class="design-rule-item">
-                        <h4>Badges</h4>
-                        <ul>
-                            <li>Gradient background</li>
-                            <li>20px border radius</li>
-                            <li>Small text size</li>
-                            <li>Uppercase letters</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Section: PC Social Plan Q1/2025 -->
     <section id="overview">
         <div class="container">
             <h2 class="section-title">PC Social Plan Q1/2025</h2>
-            
+
             <h3 style="color: var(--accent-cyan); margin-bottom: var(--space-lg);">1. Overview</h3>
-            
+
             <div class="overview-grid">
                 <div class="card overview-card">
                     <h4>Brand Goal</h4>
@@ -749,31 +682,37 @@
     <section id="segmentation">
         <div class="container">
             <h3 style="color: var(--accent-cyan); margin-bottom: var(--space-lg);">2. PC Segmentation Cards</h3>
-            
+
             <div class="segmentation-grid">
                 <!-- LITE Card -->
                 <div class="card segment-card">
                     <span class="badge segment-badge">PC LITE</span>
                     <h3>Học tập & Làm việc</h3>
                     <p class="segment-tagline">"Cấu hình vừa đủ – Tiết kiệm chi phí"</p>
-                    
-                    <h4 style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">Who</h4>
+
+                    <h4
+                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
+                        Who</h4>
                     <ul>
                         <li>Sinh viên năm 1–3, học sinh lớp 10–12</li>
                         <li>Nhân viên văn phòng entry-level</li>
                         <li>Gia đình mua PC dùng chung</li>
                         <li>Người mua PC lần đầu</li>
                     </ul>
-                    
-                    <h4 style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">Needs</h4>
+
+                    <h4
+                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
+                        Needs</h4>
                     <ul>
                         <li>Học online (Zoom, Meet), làm bài</li>
                         <li>Word / Excel / PowerPoint</li>
                         <li>Lướt web, YouTube / Netflix 1080p</li>
                         <li>Canva, Photoshop chỉnh ảnh nhẹ</li>
                     </ul>
-                    
-                    <h4 style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">Pain Points</h4>
+
+                    <h4
+                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
+                        Pain Points</h4>
                     <ul>
                         <li>Sợ mua dư tiền, bị upsell</li>
                         <li>Không hiểu linh kiện</li>
@@ -787,24 +726,30 @@
                     <span class="badge segment-badge">PC PRO</span>
                     <h3>Làm việc & Game</h3>
                     <p class="segment-tagline">"Hiệu năng vừa đủ – Dùng yên tâm nhiều năm"</p>
-                    
-                    <h4 style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">Who</h4>
+
+                    <h4
+                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
+                        Who</h4>
                     <ul>
                         <li>Sinh viên cuối / mới ra trường (Design, IT, Marketing)</li>
                         <li>Freelancer (designer, editor, dev, creator)</li>
                         <li>Nhân viên văn phòng mid-level</li>
                         <li>Gamer tầm trung, chơi thường xuyên</li>
                     </ul>
-                    
-                    <h4 style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">Needs</h4>
+
+                    <h4
+                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
+                        Needs</h4>
                     <ul>
                         <li>Photoshop, Illustrator, Figma</li>
                         <li>Premiere / After Effects mức vừa</li>
                         <li>Game AAA, setting High/Ultra, FPS ổn định</li>
                         <li>Edit video Full HD – 2K</li>
                     </ul>
-                    
-                    <h4 style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">Pain Points</h4>
+
+                    <h4
+                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
+                        Pain Points</h4>
                     <ul>
                         <li>PC hiện tại lag khi multitask</li>
                         <li>Render chậm → trễ deadline</li>
@@ -818,24 +763,30 @@
                     <span class="badge segment-badge">PC ULTRA</span>
                     <h3>Chuyên nghiệp</h3>
                     <p class="segment-tagline">"Hiệu năng tối đa – Đầu tư một lần dùng lâu dài"</p>
-                    
-                    <h4 style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">Who</h4>
+
+                    <h4
+                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
+                        Who</h4>
                     <ul>
                         <li>Hardcore gamer (AAA, competitive)</li>
                         <li>Streamer / content creator chuyên nghiệp</li>
                         <li>Designer senior, 3D artist, AI user</li>
                         <li>Freelancer / founder, PC là công cụ thu nhập</li>
                     </ul>
-                    
-                    <h4 style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">Needs</h4>
+
+                    <h4
+                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
+                        Needs</h4>
                     <ul>
                         <li>Game max/ultra setting, FPS cao ổn định</li>
                         <li>Render video nặng, 3D, motion, AI</li>
                         <li>Stream, record, đa nhiệm song song</li>
                         <li>Làm việc liên tục, tải nặng lâu dài</li>
                     </ul>
-                    
-                    <h4 style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">Pain Points</h4>
+
+                    <h4
+                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
+                        Pain Points</h4>
                     <ul>
                         <li>PC PRO bắt đầu chạm trần hiệu năng</li>
                         <li>Render chậm → mất thời gian → mất tiền</li>
@@ -851,44 +802,50 @@
     <section id="pillars">
         <div class="container">
             <h3 style="color: var(--accent-cyan); margin-bottom: var(--space-lg);">3. Social Content Pillars</h3>
-            <p style="text-align: center; margin-bottom: var(--space-xl); color: var(--text-muted); font-style: italic;">
+            <p
+                style="text-align: center; margin-bottom: var(--space-xl); color: var(--text-muted); font-style: italic;">
                 Trục cốt lõi: PC đúng nhu cầu – Không dư – Không thiếu – Dùng lâu dài
             </p>
-            
+
             <div class="pillars-grid">
                 <div class="card pillar-card">
                     <h4>Educate nền tảng – gỡ rối</h4>
                     <p><strong>HIỂU ĐÚNG PC, MUA KHÔNG SỢ SAI</strong></p>
                     <p style="margin-top: var(--space-sm);">Target: LITE → PRO</p>
-                    <p style="margin-top: var(--space-sm); font-size: 0.8rem;">Giải thích đơn giản, dịch cấu hình → nhu cầu thật. VD: "PC học tập – làm việc: khi nào KHÔNG cần VGA rời?"</p>
+                    <p style="margin-top: var(--space-sm); font-size: 0.8rem;">Giải thích đơn giản, dịch cấu hình → nhu
+                        cầu thật. VD: "PC học tập – làm việc: khi nào KHÔNG cần VGA rời?"</p>
                 </div>
-                
+
                 <div class="card pillar-card">
                     <h4>So sánh – chọn đúng</h4>
                     <p><strong>LITE – PRO – ULTRA KHÁC NHAU Ở ĐÂU?</strong></p>
                     <p style="margin-top: var(--space-sm);">Target: PRO</p>
-                    <p style="margin-top: var(--space-sm); font-size: 0.8rem;">Nói về vòng đời sử dụng, giá trị "dùng yên tâm nhiều năm". VD: "Sinh viên thiết kế năm cuối → chọn LITE hay PRO?"</p>
+                    <p style="margin-top: var(--space-sm); font-size: 0.8rem;">Nói về vòng đời sử dụng, giá trị "dùng
+                        yên tâm nhiều năm". VD: "Sinh viên thiết kế năm cuối → chọn LITE hay PRO?"</p>
                 </div>
-                
+
                 <div class="card pillar-card">
                     <h4>Chứng minh dùng lâu dài</h4>
                     <p><strong>PC LÀ KHOẢN ĐẦU TƯ, KHÔNG PHẢI ĐỒ DÙNG 1 NĂM</strong></p>
                     <p style="margin-top: var(--space-sm);">Target: PRO</p>
-                    <p style="margin-top: var(--space-sm); font-size: 0.8rem;">Nhấn mạnh vòng đời 3–5 năm, mua đúng cấu hình = tiết kiệm về lâu dài. VD: "Vì sao PC PRO dùng 3–5 năm vẫn ổn?"</p>
+                    <p style="margin-top: var(--space-sm); font-size: 0.8rem;">Nhấn mạnh vòng đời 3–5 năm, mua đúng cấu
+                        hình = tiết kiệm về lâu dài. VD: "Vì sao PC PRO dùng 3–5 năm vẫn ổn?"</p>
                 </div>
-                
+
                 <div class="card pillar-card">
                     <h4>Authority – Max setting</h4>
                     <p><strong>ULTRA – KHÔNG PHẢI AI CŨNG CẦN, NHƯNG CẦN LÀ PHẢI ĐÚNG</strong></p>
                     <p style="margin-top: var(--space-sm);">Target: ULTRA</p>
-                    <p style="margin-top: var(--space-sm); font-size: 0.8rem;">Case sử dụng nặng, quan điểm rõ ràng: ULTRA không dành cho số đông. VD: "Khi nào PRO là chưa đủ?"</p>
+                    <p style="margin-top: var(--space-sm); font-size: 0.8rem;">Case sử dụng nặng, quan điểm rõ ràng:
+                        ULTRA không dành cho số đông. VD: "Khi nào PRO là chưa đủ?"</p>
                 </div>
-                
+
                 <div class="card pillar-card">
                     <h4>Brand voice – ghi nhớ</h4>
                     <p><strong>PC GEARVN = PC ĐÚNG NHU CẦU</strong></p>
                     <p style="margin-top: var(--space-sm);">Target: ALL</p>
-                    <p style="margin-top: var(--space-sm); font-size: 0.8rem;">Tổng hợp triết lý, nhắc lại hệ thống LITE / PRO / ULTRA. VD: "Mua PC không khó, chỉ cần hiểu mình cần gì"</p>
+                    <p style="margin-top: var(--space-sm); font-size: 0.8rem;">Tổng hợp triết lý, nhắc lại hệ thống LITE
+                        / PRO / ULTRA. VD: "Mua PC không khó, chỉ cần hiểu mình cần gì"</p>
                 </div>
             </div>
         </div>
@@ -898,10 +855,11 @@
     <section id="channels">
         <div class="container">
             <h3 style="color: var(--accent-cyan); margin-bottom: var(--space-lg);">4. Channel Mapping</h3>
-            
+
             <div class="placeholder">
                 <p>[TBD] Facebook vs TikTok comparison table</p>
-                <p style="margin-top: var(--space-sm); font-size: var(--font-size-small);">Channel strategy and content distribution to be defined</p>
+                <p style="margin-top: var(--space-sm); font-size: var(--font-size-small);">Channel strategy and content
+                    distribution to be defined</p>
             </div>
         </div>
     </section>
@@ -910,10 +868,11 @@
     <section id="timeline">
         <div class="container">
             <h3 style="color: var(--accent-cyan); margin-bottom: var(--space-lg);">5. Timeline Q1 (Jan–Mar 2025)</h3>
-            
+
             <div class="placeholder">
                 <p>[TBD] Monthly roadmap for Q1 2025</p>
-                <p style="margin-top: var(--space-sm); font-size: var(--font-size-small);">January, February, March content calendar and campaign milestones to be defined</p>
+                <p style="margin-top: var(--space-sm); font-size: var(--font-size-small);">January, February, March
+                    content calendar and campaign milestones to be defined</p>
             </div>
         </div>
     </section>
@@ -922,7 +881,7 @@
     <section id="kpi" style="border-bottom: none; padding-bottom: calc(var(--section-padding) * 1.5);">
         <div class="container">
             <h3 style="color: var(--accent-cyan); margin-bottom: var(--space-lg);">6. KPI & Measurement</h3>
-            
+
             <div class="kpi-grid">
                 <div class="card kpi-card">
                     <div class="kpi-value">16M</div>
@@ -957,11 +916,11 @@
     <script>
         // Smooth scroll for navigation links
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const targetSection = document.querySelector(targetId);
-                
+
                 if (targetSection) {
                     targetSection.scrollIntoView({
                         behavior: 'smooth',
@@ -972,12 +931,12 @@
         });
 
         // Active nav link highlighting on scroll
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-link');
-            
+
             let current = '';
-            
+
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
@@ -985,7 +944,7 @@
                     current = section.getAttribute('id');
                 }
             });
-            
+
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === '#' + current) {
@@ -995,4 +954,5 @@
         });
     </script>
 </body>
+
 </html>
