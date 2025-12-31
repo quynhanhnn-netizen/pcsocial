@@ -4,571 +4,504 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PC Social Plan Q1/2025 - Portfolio</title>
+    <title>GearVN PC Social Plan Q1/2025 - Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <style>
-        /* ==================== CSS CUSTOM PROPERTIES ==================== */
-        :root {
-            /* Colors - Dark Gamer Theme */
-            --bg-primary: #0a0e1a;
-            --bg-secondary: #151923;
-            --surface-primary: #1a1f2e;
-            --surface-secondary: #242936;
-            --accent-cyan: #00d9ff;
-            --accent-purple: #a855f7;
-            --text-primary: #ffffff;
-            --text-secondary: #e5e7eb;
-            --text-muted: #9ca3af;
-            --border-color: #2d3748;
-            --border-glow: rgba(0, 217, 255, 0.3);
-
-            /* Typography */
-            --font-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-size-base: 16px;
-            --line-height-base: 1.6;
-            --font-size-h1: 3rem;
-            --font-size-h2: 2rem;
-            --font-size-h3: 1.5rem;
-            --font-size-h4: 1.25rem;
-            --font-size-small: 0.875rem;
-
-            /* Spacing */
-            --space-unit: 8px;
-            --space-xs: calc(var(--space-unit) * 1);
-            --space-sm: calc(var(--space-unit) * 2);
-            --space-md: calc(var(--space-unit) * 3);
-            --space-lg: calc(var(--space-unit) * 4);
-            --space-xl: calc(var(--space-unit) * 6);
-            --space-2xl: calc(var(--space-unit) * 10);
-            --section-padding: calc(var(--space-unit) * 10);
-
-            /* Layout */
-            --container-max-width: 1200px;
-            --card-padding: calc(var(--space-unit) * 3);
-            --card-gap: calc(var(--space-unit) * 2);
-            --border-radius: 12px;
-            --border-radius-sm: 8px;
-        }
-
-        /* ==================== RESET & BASE ==================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-            font-size: var(--font-size-base);
+        :root {
+            --bg-dark: #0f0d1e;
+            --bg-card: rgba(30, 27, 50, 0.6);
+            --bg-card-hover: rgba(40, 37, 65, 0.8);
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-accent: linear-gradient(135deg, #00d9ff 0%, #a855f7 100%);
+            --text-primary: #ffffff;
+            --text-secondary: #b4b4d4;
+            --text-muted: #8888aa;
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --glow-primary: rgba(102, 126, 234, 0.3);
+            --glow-accent: rgba(0, 217, 255, 0.3);
         }
 
         body {
-            font-family: var(--font-base);
-            line-height: var(--line-height-base);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
             color: var(--text-secondary);
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-            background-attachment: fixed;
+            line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* ==================== TYPOGRAPHY ==================== */
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            color: var(--text-primary);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: var(--space-md);
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
 
-        h1 {
-            font-size: var(--font-size-h1);
-        }
-
-        h2 {
-            font-size: var(--font-size-h2);
-        }
-
-        h3 {
-            font-size: var(--font-size-h3);
-        }
-
-        h4 {
-            font-size: var(--font-size-h4);
-        }
-
-        p {
-            margin-bottom: var(--space-sm);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        a {
-            color: var(--accent-cyan);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--accent-purple);
-        }
-
-        /* ==================== LAYOUT UTILITIES ==================== */
         .container {
-            max-width: var(--container-max-width);
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 var(--space-lg);
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
         }
 
-        section {
-            padding: var(--section-padding) 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        section:last-of-type {
-            border-bottom: none;
-        }
-
-        /* ==================== NAVIGATION ==================== */
-        .nav {
+        /* Navigation */
+        .navbar {
+            backdrop-filter: blur(20px);
+            background: rgba(15, 13, 30, 0.8);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 1rem 0;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            background: rgba(10, 14, 26, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
         }
 
         .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: var(--space-md) var(--space-lg);
-            max-width: var(--container-max-width);
-            margin: 0 auto;
         }
 
-        .nav-brand {
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             font-size: 1.25rem;
             font-weight: 700;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-primary);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient-accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
         }
 
         .nav-links {
             display: flex;
-            gap: var(--space-lg);
+            gap: 2rem;
+            list-style: none;
         }
 
         .nav-link {
-            color: var(--text-muted);
+            color: var(--text-secondary);
+            text-decoration: none;
             font-weight: 500;
-            font-size: var(--font-size-small);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            transition: color 0.3s;
             position: relative;
         }
 
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--accent-cyan);
+        .nav-link:hover {
+            color: var(--text-primary);
         }
 
         .nav-link.active::after {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: -8px;
             left: 0;
-            width: 100%;
+            right: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            background: var(--gradient-accent);
         }
 
-        /* ==================== COMPONENTS ==================== */
-        .card {
-            background: var(--surface-primary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            padding: var(--card-padding);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            border-color: var(--border-glow);
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .badge {
-            display: inline-block;
-            padding: var(--space-xs) var(--space-sm);
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            color: var(--text-primary);
-            font-size: var(--font-size-small);
-            font-weight: 600;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: var(--space-sm) var(--space-lg);
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            color: var(--text-primary);
-            font-weight: 600;
-            border: none;
-            border-radius: var(--border-radius-sm);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0, 217, 255, 0.4);
-        }
-
-        /* ==================== SECTION: HERO ==================== */
+        /* Hero Section */
         .hero {
-            padding: calc(var(--section-padding) * 1.5) 0;
+            padding: 6rem 0 4rem;
             text-align: center;
-            background: radial-gradient(circle at center, rgba(0, 217, 255, 0.05), transparent);
         }
 
         .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: var(--space-md);
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-gradient {
+            background: var(--gradient-accent);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .hero p {
+        .hero-subtitle {
             font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
         }
 
-        /* ==================== SECTION: SKILLS ==================== */
-        .section-title {
-            font-size: var(--font-size-h2);
-            margin-bottom: var(--space-xl);
-            text-align: center;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
-            margin: var(--space-md) auto 0;
-            border-radius: 2px;
-        }
-
-        .skills-grid {
+        /* Stats Grid */
+        .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-md);
-            margin-bottom: var(--space-2xl);
+            gap: 1.5rem;
+            margin: 3rem 0 5rem;
         }
 
-        .skill-card {
-            text-align: center;
-        }
-
-        .skill-card h4 {
-            color: var(--accent-cyan);
-            margin-bottom: var(--space-sm);
-        }
-
-        .skill-card p {
-            font-size: var(--font-size-small);
-            color: var(--text-muted);
-        }
-
-        .design-rules {
-            background: var(--surface-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            padding: var(--space-xl);
-            margin-top: var(--space-2xl);
-        }
-
-        .design-rules h3 {
-            color: var(--accent-purple);
-            margin-bottom: var(--space-lg);
-        }
-
-        .design-rules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-lg);
-        }
-
-        .design-rule-item h4 {
-            font-size: 1rem;
-            color: var(--text-primary);
-            margin-bottom: var(--space-xs);
-        }
-
-        .design-rule-item ul {
-            list-style: disc;
-            list-style-position: inside;
-            color: var(--text-muted);
-            font-size: var(--font-size-small);
-        }
-
-        /* ==================== SECTION: OVERVIEW ==================== */
-        .overview-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-md);
-            margin-bottom: var(--space-2xl);
-        }
-
-        .overview-card h4 {
-            color: var(--accent-cyan);
-            margin-bottom: var(--space-sm);
-        }
-
-        .overview-card ul {
-            list-style: none;
-        }
-
-        .overview-card ul li {
-            padding-left: var(--space-md);
-            position: relative;
-            margin-bottom: var(--space-xs);
-        }
-
-        .overview-card ul li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent-cyan);
-        }
-
-        /* ==================== SECTION: SEGMENTATION ==================== */
-        .segmentation-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: var(--space-md);
-            margin-bottom: var(--space-2xl);
-        }
-
-        .segment-card {
+        .stat-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .segment-card::before {
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-accent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .stat-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-sublabel {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 3rem 0;
+        }
+
+        .section-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Content Cards */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .content-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .card-text {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: var(--gradient-accent);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        /* Segment Cards */
+        .segment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .segment-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .segment-card::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 4px;
             height: 100%;
-            background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
+            background: var(--gradient-accent);
         }
 
-        .segment-badge {
-            margin-bottom: var(--space-md);
+        .segment-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .segment-card h3 {
+        .segment-title {
             font-size: 1.5rem;
-            margin-bottom: var(--space-sm);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
         }
 
         .segment-tagline {
-            color: var(--accent-cyan);
+            color: #00d9ff;
             font-style: italic;
-            margin-bottom: var(--space-md);
-            font-size: var(--font-size-small);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
         }
 
-        .segment-card ul {
+        .segment-section {
+            margin-top: 1.5rem;
+        }
+
+        .segment-section h4 {
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+        }
+
+        .segment-list {
             list-style: none;
+            padding: 0;
         }
 
-        .segment-card ul li {
-            padding-left: var(--space-md);
+        .segment-list li {
             position: relative;
-            margin-bottom: var(--space-sm);
-            font-size: var(--font-size-small);
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
         }
 
-        .segment-card ul li::before {
+        .segment-list li::before {
             content: '●';
             position: absolute;
             left: 0;
-            color: var(--accent-purple);
+            color: #a855f7;
+            font-size: 0.8rem;
         }
 
-        /* ==================== SECTION: PILLARS ==================== */
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--space-md);
-            margin-bottom: var(--space-2xl);
-        }
-
-        .pillar-card h4 {
-            color: var(--accent-purple);
-            margin-bottom: var(--space-sm);
-            font-size: 1.1rem;
-        }
-
-        .pillar-card p {
-            font-size: var(--font-size-small);
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* ==================== TABLE ==================== */
-        .table-container {
-            overflow-x: auto;
-            margin-bottom: var(--space-2xl);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--surface-primary);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-        }
-
-        th {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            color: var(--text-primary);
-            padding: var(--space-md);
-            text-align: left;
-            font-weight: 600;
-        }
-
-        td {
-            padding: var(--space-md);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tr:hover {
-            background: var(--surface-secondary);
-        }
-
-        /* ==================== TIMELINE ==================== */
-        .timeline {
+        /* Pillar Cards */
+        .pillar-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-md);
-            margin-bottom: var(--space-2xl);
+            gap: 2rem;
         }
 
-        .timeline-card {
-            text-align: center;
+        .pillar-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
         }
 
-        .timeline-card h4 {
-            color: var(--accent-cyan);
-            margin-bottom: var(--space-md);
+        .pillar-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .timeline-card ul li {
-            padding: var(--space-sm) 0;
-            border-bottom: 1px solid var(--border-color);
+        .pillar-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #a855f7;
+            margin-bottom: 1rem;
         }
 
-        .timeline-card ul li:last-child {
-            border-bottom: none;
+        .pillar-headline {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
         }
 
-        /* ==================== KPI CARDS ==================== */
-        .kpi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-md);
+        .pillar-target {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(102, 126, 234, 0.2);
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
-        .kpi-card {
-            text-align: center;
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(168, 85, 247, 0.1));
-            border: 2px solid var(--border-color);
-        }
-
-        .kpi-value {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: var(--space-sm);
-        }
-
-        .kpi-label {
+        .pillar-description {
             color: var(--text-muted);
-            font-size: var(--font-size-small);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
-        /* ==================== PLACEHOLDER ==================== */
-        .placeholder {
+        /* Timeline */
+        .timeline {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 2px dashed var(--border-glass);
+            border-radius: 1.5rem;
+            padding: 3rem;
             text-align: center;
-            padding: var(--space-xl);
-            background: var(--surface-secondary);
-            border: 2px dashed var(--border-color);
-            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-text {
             color: var(--text-muted);
             font-style: italic;
         }
 
-        /* ==================== RESPONSIVE ==================== */
+        /* Responsive */
         @media (max-width: 768px) {
-            :root {
-                --font-size-h1: 2rem;
-                --font-size-h2: 1.5rem;
-                --font-size-h3: 1.25rem;
-                --section-padding: calc(var(--space-unit) * 6);
-            }
-
             .nav-links {
-                gap: var(--space-md);
+                gap: 1rem;
+                font-size: 0.85rem;
             }
 
-            .nav-link {
-                font-size: 0.75rem;
+            .hero h1 {
+                font-size: 2rem;
             }
 
-            .skills-grid,
-            .segmentation-grid,
-            .pillars-grid,
-            .timeline {
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .stats-grid,
+            .content-grid,
+            .segment-grid,
+            .pillar-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .stat-value {
+                font-size: 2.5rem;
             }
         }
 
-        /* ==================== ANIMATIONS ==================== */
-        @keyframes fadeIn {
+        /* Animations */
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
@@ -580,321 +513,347 @@
             }
         }
 
-        .card {
-            animation: fadeIn 0.6s ease-out backwards;
+        .stat-card,
+        .content-card,
+        .segment-card,
+        .pillar-card {
+            animation: fadeInUp 0.6s ease-out backwards;
         }
 
-        .card:nth-child(1) {
+        .stat-card:nth-child(1) {
             animation-delay: 0.1s;
         }
 
-        .card:nth-child(2) {
+        .stat-card:nth-child(2) {
             animation-delay: 0.2s;
         }
 
-        .card:nth-child(3) {
+        .stat-card:nth-child(3) {
             animation-delay: 0.3s;
         }
 
-        .card:nth-child(4) {
+        .stat-card:nth-child(4) {
             animation-delay: 0.4s;
-        }
-
-        .card:nth-child(5) {
-            animation-delay: 0.5s;
         }
     </style>
 </head>
 
 <body>
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-brand">PC Social Plan</div>
-            <div class="nav-links">
-                <a href="#overview" class="nav-link">Overview</a>
-                <a href="#segmentation" class="nav-link">Segmentation</a>
-                <a href="#pillars" class="nav-link">Pillars</a>
-                <a href="#timeline" class="nav-link">Timeline</a>
+            <div class="logo">
+                <div class="logo-icon">🎮</div>
+                <span>GearVN PC</span>
             </div>
+            <ul class="nav-links">
+                <li><a href="#overview" class="nav-link active">Overview</a></li>
+                <li><a href="#segmentation" class="nav-link">Segmentation</a></li>
+                <li><a href="#pillars" class="nav-link">Content Pillars</a></li>
+                <li><a href="#timeline" class="nav-link">Timeline</a></li>
+            </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>PC Social Plan Q1/2025</h1>
-            <p>Portfolio & Internal Review · GearVN PC Category Strategy</p>
+            <h1>
+                Unlocking the <span class="hero-gradient">potential</span><br>
+                of PC category
+            </h1>
+            <p class="hero-subtitle">
+                Định vị GearVN = nơi chia PC theo level người dùng, không phải theo linh kiện.
+                Educate, brand awareness, và drive traffic trong giai đoạn low demand.
+            </p>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">16M</div>
+                    <div class="stat-label">Organic Views</div>
+                    <div class="stat-sublabel">per month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">48M</div>
+                    <div class="stat-label">Total Views</div>
+                    <div class="stat-sublabel">Q1 2025 target</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Segments</div>
+                    <div class="stat-sublabel">LITE / PRO / ULTRA</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Content Pillars</div>
+                    <div class="stat-sublabel">Strategic themes</div>
+                </div>
+            </div>
         </div>
     </section>
 
-
-
-    <!-- Section: PC Social Plan Q1/2025 -->
+    <!-- Overview Section -->
     <section id="overview">
         <div class="container">
-            <h2 class="section-title">PC Social Plan Q1/2025</h2>
+            <div class="section-header">
+                <h2 class="section-title">Strategic Overview</h2>
+                <p class="section-subtitle">Our approach to PC category positioning</p>
+            </div>
 
-            <h3 style="color: var(--accent-cyan); margin-bottom: var(--space-lg);">1. Overview</h3>
-
-            <div class="overview-grid">
-                <div class="card overview-card">
-                    <h4>Brand Goal</h4>
-                    <p>Định vị GEARVN = nơi chia PC theo level người dùng, không phải theo linh kiện.</p>
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon">🎯</div>
+                        <h3 class="card-title">Brand Goal</h3>
+                    </div>
+                    <p class="card-text">
+                        Định vị GEARVN = nơi chia PC theo level người dùng, không phải theo linh kiện.
+                    </p>
                 </div>
-                <div class="card overview-card">
-                    <h4>Communication Goal</h4>
-                    <ul>
+
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon">💬</div>
+                        <h3 class="card-title">Communication Goal</h3>
+                    </div>
+                    <ul class="segment-list">
                         <li>Biết mình thuộc phân khúc nào</li>
                         <li>Hiểu LITE – PRO – ULTRA khác nhau ra sao</li>
                         <li>Nhớ tên phân khúc khi nghĩ đến PC GEARVN</li>
                     </ul>
                 </div>
-                <div class="card overview-card">
-                    <h4>Conversion Goal</h4>
-                    <ul>
+
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon">📈</div>
+                        <h3 class="card-title">Conversion Goal</h3>
+                    </div>
+                    <ul class="segment-list">
                         <li>Dẫn traffic về trang chọn PC theo phân khúc</li>
                         <li>Các build PC gợi ý theo LITE / PRO / ULTRA</li>
                     </ul>
                 </div>
             </div>
-
-            <div class="kpi-grid">
-                <div class="card kpi-card">
-                    <div class="kpi-value">16M</div>
-                    <div class="kpi-label">Organic Views / Month</div>
-                </div>
-                <div class="card kpi-card">
-                    <div class="kpi-value">48M</div>
-                    <div class="kpi-label">Organic Views / Q1</div>
-                </div>
-                <div class="card kpi-card">
-                    <div class="kpi-value">PC</div>
-                    <div class="kpi-label">Focus Category</div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Section: Segmentation -->
+    <!-- Segmentation Section -->
     <section id="segmentation">
         <div class="container">
-            <h3 style="color: var(--accent-cyan); margin-bottom: var(--space-lg);">2. PC Segmentation Cards</h3>
+            <div class="section-header">
+                <h2 class="section-title">PC Segmentation</h2>
+                <p class="section-subtitle">Three distinct customer personas</p>
+            </div>
 
-            <div class="segmentation-grid">
-                <!-- LITE Card -->
-                <div class="card segment-card">
-                    <span class="badge segment-badge">PC LITE</span>
-                    <h3>Học tập & Làm việc</h3>
+            <div class="segment-grid">
+                <!-- LITE -->
+                <div class="segment-card">
+                    <span class="badge">PC LITE</span>
+                    <h3 class="segment-title">Học tập & Làm việc</h3>
                     <p class="segment-tagline">"Cấu hình vừa đủ – Tiết kiệm chi phí"</p>
 
-                    <h4
-                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
-                        Who</h4>
-                    <ul>
-                        <li>Sinh viên năm 1–3, học sinh lớp 10–12</li>
-                        <li>Nhân viên văn phòng entry-level</li>
-                        <li>Gia đình mua PC dùng chung</li>
-                        <li>Người mua PC lần đầu</li>
-                    </ul>
+                    <div class="segment-section">
+                        <h4>Who</h4>
+                        <ul class="segment-list">
+                            <li>Sinh viên năm 1–3, học sinh lớp 10–12</li>
+                            <li>Nhân viên văn phòng entry-level</li>
+                            <li>Gia đình mua PC dùng chung</li>
+                            <li>Người mua PC lần đầu</li>
+                        </ul>
+                    </div>
 
-                    <h4
-                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
-                        Needs</h4>
-                    <ul>
-                        <li>Học online (Zoom, Meet), làm bài</li>
-                        <li>Word / Excel / PowerPoint</li>
-                        <li>Lướt web, YouTube / Netflix 1080p</li>
-                        <li>Canva, Photoshop chỉnh ảnh nhẹ</li>
-                    </ul>
+                    <div class="segment-section">
+                        <h4>Needs</h4>
+                        <ul class="segment-list">
+                            <li>Học online (Zoom, Meet), làm bài</li>
+                            <li>Word / Excel / PowerPoint</li>
+                            <li>Lướt web, YouTube / Netflix 1080p</li>
+                            <li>Canva, Photoshop chỉnh ảnh nhẹ</li>
+                        </ul>
+                    </div>
 
-                    <h4
-                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
-                        Pain Points</h4>
-                    <ul>
-                        <li>Sợ mua dư tiền, bị upsell</li>
-                        <li>Không hiểu linh kiện</li>
-                        <li>Ám ảnh PC chậm, lag khi multitask</li>
-                        <li>Ngại rủi ro, sợ phải sửa/nâng cấp</li>
-                    </ul>
+                    <div class="segment-section">
+                        <h4>Pain Points</h4>
+                        <ul class="segment-list">
+                            <li>Sợ mua dư tiền, bị upsell</li>
+                            <li>Không hiểu linh kiện</li>
+                            <li>Ám ảnh PC chậm, lag khi multitask</li>
+                            <li>Ngại rủi ro, sợ phải sửa/nâng cấp</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- PRO Card -->
-                <div class="card segment-card">
-                    <span class="badge segment-badge">PC PRO</span>
-                    <h3>Làm việc & Game</h3>
+                <!-- PRO -->
+                <div class="segment-card">
+                    <span class="badge">PC PRO</span>
+                    <h3 class="segment-title">Làm việc & Game</h3>
                     <p class="segment-tagline">"Hiệu năng vừa đủ – Dùng yên tâm nhiều năm"</p>
 
-                    <h4
-                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
-                        Who</h4>
-                    <ul>
-                        <li>Sinh viên cuối / mới ra trường (Design, IT, Marketing)</li>
-                        <li>Freelancer (designer, editor, dev, creator)</li>
-                        <li>Nhân viên văn phòng mid-level</li>
-                        <li>Gamer tầm trung, chơi thường xuyên</li>
-                    </ul>
+                    <div class="segment-section">
+                        <h4>Who</h4>
+                        <ul class="segment-list">
+                            <li>Sinh viên cuối / mới ra trường (Design, IT, Marketing)</li>
+                            <li>Freelancer (designer, editor, dev, creator)</li>
+                            <li>Nhân viên văn phòng mid-level</li>
+                            <li>Gamer tầm trung, chơi thường xuyên</li>
+                        </ul>
+                    </div>
 
-                    <h4
-                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
-                        Needs</h4>
-                    <ul>
-                        <li>Photoshop, Illustrator, Figma</li>
-                        <li>Premiere / After Effects mức vừa</li>
-                        <li>Game AAA, setting High/Ultra, FPS ổn định</li>
-                        <li>Edit video Full HD – 2K</li>
-                    </ul>
+                    <div class="segment-section">
+                        <h4>Needs</h4>
+                        <ul class="segment-list">
+                            <li>Photoshop, Illustrator, Figma</li>
+                            <li>Premiere / After Effects mức vừa</li>
+                            <li>Game AAA, setting High/Ultra, FPS ổn định</li>
+                            <li>Edit video Full HD – 2K</li>
+                        </ul>
+                    </div>
 
-                    <h4
-                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
-                        Pain Points</h4>
-                    <ul>
-                        <li>PC hiện tại lag khi multitask</li>
-                        <li>Render chậm → trễ deadline</li>
-                        <li>Lăn tăn LITE vs ULTRA, sợ mua sai</li>
-                        <li>Cần tư vấn dịch cấu hình → nhu cầu thật</li>
-                    </ul>
+                    <div class="segment-section">
+                        <h4>Pain Points</h4>
+                        <ul class="segment-list">
+                            <li>PC hiện tại lag khi multitask</li>
+                            <li>Render chậm → trễ deadline</li>
+                            <li>Lăn tăn LITE vs ULTRA, sợ mua sai</li>
+                            <li>Cần tư vấn dịch cấu hình → nhu cầu thật</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- ULTRA Card -->
-                <div class="card segment-card">
-                    <span class="badge segment-badge">PC ULTRA</span>
-                    <h3>Chuyên nghiệp</h3>
+                <!-- ULTRA -->
+                <div class="segment-card">
+                    <span class="badge">PC ULTRA</span>
+                    <h3 class="segment-title">Chuyên nghiệp</h3>
                     <p class="segment-tagline">"Hiệu năng tối đa – Đầu tư một lần dùng lâu dài"</p>
 
-                    <h4
-                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
-                        Who</h4>
-                    <ul>
-                        <li>Hardcore gamer (AAA, competitive)</li>
-                        <li>Streamer / content creator chuyên nghiệp</li>
-                        <li>Designer senior, 3D artist, AI user</li>
-                        <li>Freelancer / founder, PC là công cụ thu nhập</li>
-                    </ul>
+                    <div class="segment-section">
+                        <h4>Who</h4>
+                        <ul class="segment-list">
+                            <li>Hardcore gamer (AAA, competitive)</li>
+                            <li>Streamer / content creator chuyên nghiệp</li>
+                            <li>Designer senior, 3D artist, AI user</li>
+                            <li>Freelancer / founder, PC là công cụ thu nhập</li>
+                        </ul>
+                    </div>
 
-                    <h4
-                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
-                        Needs</h4>
-                    <ul>
-                        <li>Game max/ultra setting, FPS cao ổn định</li>
-                        <li>Render video nặng, 3D, motion, AI</li>
-                        <li>Stream, record, đa nhiệm song song</li>
-                        <li>Làm việc liên tục, tải nặng lâu dài</li>
-                    </ul>
+                    <div class="segment-section">
+                        <h4>Needs</h4>
+                        <ul class="segment-list">
+                            <li>Game max/ultra setting, FPS cao ổn định</li>
+                            <li>Render video nặng, 3D, motion, AI</li>
+                            <li>Stream, record, đa nhiệm song song</li>
+                            <li>Làm việc liên tục, tải nặng lâu dài</li>
+                        </ul>
+                    </div>
 
-                    <h4
-                        style="margin-top: var(--space-md); margin-bottom: var(--space-sm); color: var(--text-primary); font-size: 1rem;">
-                        Pain Points</h4>
-                    <ul>
-                        <li>PC PRO bắt đầu chạm trần hiệu năng</li>
-                        <li>Render chậm → mất thời gian → mất tiền</li>
-                        <li>Game max setting nhưng FPS không ổn định</li>
-                        <li>Ghét nâng cấp từng phần, gián đoạn công việc</li>
-                    </ul>
+                    <div class="segment-section">
+                        <h4>Pain Points</h4>
+                        <ul class="segment-list">
+                            <li>PC PRO bắt đầu chạm trần hiệu năng</li>
+                            <li>Render chậm → mất thời gian → mất tiền</li>
+                            <li>Game max setting nhưng FPS không ổn định</li>
+                            <li>Ghét nâng cấp từng phần, gián đoạn công việc</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section: Social Content Pillars -->
+    <!-- Content Pillars -->
     <section id="pillars">
         <div class="container">
-            <h3 style="color: var(--accent-cyan); margin-bottom: var(--space-lg);">3. Social Content Pillars</h3>
-            <p
-                style="text-align: center; margin-bottom: var(--space-xl); color: var(--text-muted); font-style: italic;">
-                Trục cốt lõi: PC đúng nhu cầu – Không dư – Không thiếu – Dùng lâu dài
-            </p>
+            <div class="section-header">
+                <h2 class="section-title">Social Content Pillars</h2>
+                <p class="section-subtitle">PC đúng nhu cầu – Không dư – Không thiếu – Dùng lâu dài</p>
+            </div>
 
-            <div class="pillars-grid">
-                <div class="card pillar-card">
-                    <h4>Educate nền tảng – gỡ rối</h4>
-                    <p><strong>HIỂU ĐÚNG PC, MUA KHÔNG SỢ SAI</strong></p>
-                    <p style="margin-top: var(--space-sm);">Target: LITE → PRO</p>
-                    <p style="margin-top: var(--space-sm); font-size: 0.8rem;">Giải thích đơn giản, dịch cấu hình → nhu
-                        cầu thật. VD: "PC học tập – làm việc: khi nào KHÔNG cần VGA rời?"</p>
+            <div class="pillar-grid">
+                <div class="pillar-card">
+                    <h4 class="pillar-title">Educate nền tảng – gỡ rối</h4>
+                    <p class="pillar-headline">HIỂU ĐÚNG PC, MUA KHÔNG SỢ SAI</p>
+                    <span class="pillar-target">Target: LITE → PRO</span>
+                    <p class="pillar-description">
+                        Giải thích đơn giản, dịch cấu hình → nhu cầu thật.
+                        VD: "PC học tập – làm việc: khi nào KHÔNG cần VGA rời?"
+                    </p>
                 </div>
 
-                <div class="card pillar-card">
-                    <h4>So sánh – chọn đúng</h4>
-                    <p><strong>LITE – PRO – ULTRA KHÁC NHAU Ở ĐÂU?</strong></p>
-                    <p style="margin-top: var(--space-sm);">Target: PRO</p>
-                    <p style="margin-top: var(--space-sm); font-size: 0.8rem;">Nói về vòng đời sử dụng, giá trị "dùng
-                        yên tâm nhiều năm". VD: "Sinh viên thiết kế năm cuối → chọn LITE hay PRO?"</p>
+                <div class="pillar-card">
+                    <h4 class="pillar-title">So sánh – chọn đúng</h4>
+                    <p class="pillar-headline">LITE – PRO – ULTRA KHÁC NHAU Ở ĐÂU?</p>
+                    <span class="pillar-target">Target: PRO</span>
+                    <p class="pillar-description">
+                        Nói về vòng đời sử dụng, giá trị "dùng yên tâm nhiều năm".
+                        VD: "Sinh viên thiết kế năm cuối → chọn LITE hay PRO?"
+                    </p>
                 </div>
 
-                <div class="card pillar-card">
-                    <h4>Chứng minh dùng lâu dài</h4>
-                    <p><strong>PC LÀ KHOẢN ĐẦU TƯ, KHÔNG PHẢI ĐỒ DÙNG 1 NĂM</strong></p>
-                    <p style="margin-top: var(--space-sm);">Target: PRO</p>
-                    <p style="margin-top: var(--space-sm); font-size: 0.8rem;">Nhấn mạnh vòng đời 3–5 năm, mua đúng cấu
-                        hình = tiết kiệm về lâu dài. VD: "Vì sao PC PRO dùng 3–5 năm vẫn ổn?"</p>
+                <div class="pillar-card">
+                    <h4 class="pillar-title">Chứng minh dùng lâu dài</h4>
+                    <p class="pillar-headline">PC LÀ KHOẢN ĐẦU TƯ, KHÔNG PHẢI ĐỒ DÙNG 1 NĂM</p>
+                    <span class="pillar-target">Target: PRO</span>
+                    <p class="pillar-description">
+                        Nhấn mạnh vòng đời 3–5 năm, mua đúng cấu hình = tiết kiệm về lâu dài.
+                        VD: "Vì sao PC PRO dùng 3–5 năm vẫn ổn?"
+                    </p>
                 </div>
 
-                <div class="card pillar-card">
-                    <h4>Authority – Max setting</h4>
-                    <p><strong>ULTRA – KHÔNG PHẢI AI CŨNG CẦN, NHƯNG CẦN LÀ PHẢI ĐÚNG</strong></p>
-                    <p style="margin-top: var(--space-sm);">Target: ULTRA</p>
-                    <p style="margin-top: var(--space-sm); font-size: 0.8rem;">Case sử dụng nặng, quan điểm rõ ràng:
-                        ULTRA không dành cho số đông. VD: "Khi nào PRO là chưa đủ?"</p>
+                <div class="pillar-card">
+                    <h4 class="pillar-title">Authority – Max setting</h4>
+                    <p class="pillar-headline">ULTRA – KHÔNG PHẢI AI CŨNG CẦN, NHƯNG CẦN LÀ PHẢI ĐÚNG</p>
+                    <span class="pillar-target">Target: ULTRA</span>
+                    <p class="pillar-description">
+                        Case sử dụng nặng, quan điểm rõ ràng: ULTRA không dành cho số đông.
+                        VD: "Khi nào PRO là chưa đủ?"
+                    </p>
                 </div>
 
-                <div class="card pillar-card">
-                    <h4>Brand voice – ghi nhớ</h4>
-                    <p><strong>PC GEARVN = PC ĐÚNG NHU CẦU</strong></p>
-                    <p style="margin-top: var(--space-sm);">Target: ALL</p>
-                    <p style="margin-top: var(--space-sm); font-size: 0.8rem;">Tổng hợp triết lý, nhắc lại hệ thống LITE
-                        / PRO / ULTRA. VD: "Mua PC không khó, chỉ cần hiểu mình cần gì"</p>
+                <div class="pillar-card">
+                    <h4 class="pillar-title">Brand voice – ghi nhớ</h4>
+                    <p class="pillar-headline">PC GEARVN = PC ĐÚNG NHU CẦU</p>
+                    <span class="pillar-target">Target: ALL</span>
+                    <p class="pillar-description">
+                        Tổng hợp triết lý, nhắc lại hệ thống LITE / PRO / ULTRA.
+                        VD: "Mua PC không khó, chỉ cần hiểu mình cần gì"
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-
-
-    <!-- Section: Timeline Q1 -->
+    <!-- Timeline -->
     <section id="timeline">
         <div class="container">
-            <h3 style="color: var(--accent-cyan); margin-bottom: var(--space-lg);">5. Timeline Q1 (Jan–Mar 2025)</h3>
-
-            <div class="placeholder">
-                <p>[TBD] Monthly roadmap for Q1 2025</p>
-                <p style="margin-top: var(--space-sm); font-size: var(--font-size-small);">January, February, March
-                    content calendar and campaign milestones to be defined</p>
+            <div class="timeline">
+                <h3 class="timeline-title">Timeline Q1 2025 (Jan–Mar)</h3>
+                <p class="timeline-text">[TBD] Monthly roadmap and campaign milestones to be defined</p>
             </div>
         </div>
     </section>
 
-
-
-    <!-- JavaScript -->
     <script>
-        // Smooth scroll for navigation links
+        // Smooth scroll
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-
-                if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Active nav link highlighting on scroll
-        window.addEventListener('scroll', function () {
+        // Active nav on scroll
+        window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-link');
 
             let current = '';
-
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 100) {
+                const sectionTop = section.offsetTop - 100;
+                if (pageYOffset >= sectionTop) {
                     current = section.getAttribute('id');
                 }
             });
